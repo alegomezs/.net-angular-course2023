@@ -14,7 +14,17 @@ namespace TransportApp
 
         public override string ShowPassengersAmount()
         {
-            return $"Tai {TransportID}: {PassengersAmount} pasajeros";
+            return $"Taxi {TransportID}: {PassengersAmount} pasajeros";
+        }
+
+        public override string Stop()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string Move()
+        {
+            throw new NotImplementedException();
         }
     }
 }

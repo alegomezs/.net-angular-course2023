@@ -12,32 +12,39 @@ namespace TransportApp
         static void Main(string[] args)
         {         
             bool salir = false;
-            int taxiID = 0;
-            int omnibusID = 0;
            
             List<Transport> transportList = new List<Transport>();
 
+            int taxiID = 0;
+            int omnibusID = 0;
             while (!salir)
             {
                 try
                 {
+                    //App Menu
                     Console.WriteLine("PASAJEROS * TRANSPORTES ADMIN");
                     Console.WriteLine("1. CARGAR OMNIBUS");
                     Console.WriteLine("2. CARGAR TAXI");
                     Console.WriteLine("3. LISTAR");
                     Console.WriteLine("4. SALIR");
                     Console.WriteLine("INGRESAR OPCION Y PRESIONAR 'ENTER'");
-                    int opcion = Convert.ToInt32(Console.ReadLine());
-
+                    int opcion = int.Parse(Console.ReadLine());
+                    int amount;
+                   
                     switch (opcion)
                     {
                         case 1:
+                            /*
+                            * Set the amount of passengers for this Transport and sets an ID to it.
+                            */                          
+                            Console.Clear();
                             Console.WriteLine("CANTIDADD DE PASAJEROS:");
                             Console.WriteLine("INGRESAR LA CANTIDAD Y PRESIONAR 'ENTER'");
+                            amount = int.Parse(Console.ReadLine());
                             try
                             {
-                                omnibusID += 1; 
-                                Omnibus omnibus = new Omnibus(omnibusID, Convert.ToInt32(Console.ReadLine()));
+                                omnibusID += 1;
+                                Omnibus omnibus = new Omnibus(omnibusID, amount);
                                 transportList.Add(omnibus);
                             }
                             catch (FormatException e)
@@ -46,12 +53,17 @@ namespace TransportApp
                             }
                             break;
                         case 2:
+                            /*
+                            * Set the amount of passengers for this Transport and sets an ID to it.
+                            */
+                            Console.Clear();
                             Console.WriteLine("CANTIDADD DE PASAJEROS:");
                             Console.WriteLine("INGRESAR LA CANTIDAD Y PRESIONAR 'ENTER'");
+                            amount = int.Parse(Console.ReadLine());
                             try
                             {
                                 taxiID += 1;
-                                Taxi taxi = new Taxi(taxiID, Convert.ToInt32(Console.ReadLine()));
+                                Taxi taxi = new Taxi(taxiID, amount);
                                 transportList.Add(taxi);
                             }
                             catch (FormatException e)
@@ -60,17 +72,30 @@ namespace TransportApp
                             }
                             break;
                         case 3:
-                            foreach(Transport transport in transportList)
+                            /*
+                             * Display a list of different Transport and their descriptions.
+                             */
+                            Console.Clear();
+                            try
                             {
-                                Console.WriteLine(transport.PassengersAmount);
+                                foreach (Transport transport in transportList)
+                                {
+                                    Console.WriteLine(transport.ShowPassengersAmount());
+                                }
+                            }
+                            catch(Exception e)
+                            {
+                                Console.WriteLine(e.Message);
                             }
                             break;
                         case 4:
+                            //Exit the App
+                            Console.Clear();
                             Console.WriteLine("SALIENDO");
                             salir = true;
                             break;                      
                         default:
-                            UndefinedOption();
+                            Console.WriteLine("LA OPCION INGRESADA NO EXISTE");
                             break;
                     }
 
@@ -82,32 +107,11 @@ namespace TransportApp
             }
         }
 
-        public static void UndefinedOption()
+        
+        public static void showPassengers()
         {
-            Console.WriteLine("LA OPCION INGRESADA NO EXISTE");
+           
         }
-        /*
-        public static void CreateTransport()
-        {
-            Console.WriteLine("");
-            Console.WriteLine("TIPO DE UNIDAD:");
-            Console.WriteLine("1. OMNIBUS");
-            Console.WriteLine("2. TAXI");
-            Console.WriteLine("INGRESAR OPCION Y PRESIONAR 'ENTER'");
-            int opcion = Convert.ToInt32(Console.ReadLine());
-            switch(opcion)
-            {
-                case 1:
-                   
-                    
-                    break;
-                case 2:
-                    break;
-                default:
-                    Console.WriteLine("LA OPCION INGRESADA NO EXISTE");
-                    break;
-            }
-        }
-        */
+        
     }
 }

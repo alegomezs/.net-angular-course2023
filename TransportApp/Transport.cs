@@ -18,5 +18,7 @@ namespace TransportApp
         }
 
         public abstract string ShowPassengersAmount();
+        public abstract string Move();
+        public abstract string Stop();
     }
 }
