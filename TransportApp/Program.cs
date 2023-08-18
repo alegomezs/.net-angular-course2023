@@ -156,14 +156,24 @@ namespace TransportApp
         public static void AppSubMenu(List<Transport> transportList)
         {
             Console.WriteLine("-- INDICAR ACCION --");
-            if (transportList == null) {
-                Console.WriteLine("SIN TRANSPORTES CARGADOS");
+            Console.WriteLine();
+            if (transportList.Count == 0) {
+                Console.WriteLine("SIN TRANSPORTES CARGADOS PARA LA ACCION");
             }
             else
             {
+                Console.WriteLine("SELECCIONE UNIDAD POR ID:");                
                 foreach (Transport transport in transportList)
+                {                   
+                    Console.WriteLine(transport.Description());
+                }
+                int input = int.Parse(Console.ReadLine());
+                if (input != 0)
                 {
+                    Console.WriteLine("SELECCIONE ACCION: ");
                     Console.WriteLine();
+                    Console.WriteLine("1. AVANZAR");
+                    Console.WriteLine("2. DETENERSE");
                 }
             }
         }
