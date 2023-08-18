@@ -11,21 +11,24 @@ namespace TransportApp
         public Omnibus(int transportID, int passengersAmount) : base(transportID, passengersAmount)
         {
         }
-
-        public override string ShowPassengersAmount()
+        public override string Description()
         {
-            
-            return $"Omnibus {TransportID}: {PassengersAmount} pasajeros";
+            return $"OMNIBUS {TransportID}";
+        }
+        public override string CapacityStatus()
+        {
+
+            return $"{PassengersAmount} PASAJEROS";
         }
 
         public override string Stop()
         {
-            throw new NotImplementedException();
+            return $"DETENIDO";
         }
 
         public override string Move()
         {
-            throw new NotImplementedException();
+            return $"AVANZANDO";
         }
     }
 }
