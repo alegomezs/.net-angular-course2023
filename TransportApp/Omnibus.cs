@@ -8,7 +8,7 @@ namespace TransportApp
 {
     public class Omnibus : Transport
     {
-        public Omnibus(int transportID, int passengersAmount) : base(transportID, passengersAmount)
+        public Omnibus(int transportID, int passengersAmount, int TransportType) : base(transportID, passengersAmount, TransportType)
         {
         }
         public override string Description()

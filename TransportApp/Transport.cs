@@ -10,12 +10,14 @@ namespace TransportApp
     {
         public int PassengersAmount { get; set; }
         public int TransportID { get; set; }
-
-        public Transport(int transportID, int passengersAmount)
+        public int TransportType { get; set; }    
+        protected Transport(int transportID, int passengersAmount, int transportType)
         {
-            this.TransportID = transportID;
-            this.PassengersAmount = passengersAmount;
-        }
+            TransportID = transportID;
+            PassengersAmount = passengersAmount;
+            TransportType = transportType;            
+        } 
+
         public abstract string Description();
         public abstract string CapacityStatus();
         public abstract string Move();
