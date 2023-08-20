@@ -27,7 +27,10 @@ namespace DivisionApp
             {
                 Console.WriteLine($"Excepcion {e.Message}");
             }
-            Console.ReadLine();
+            finally
+            {
+                Console.WriteLine("Operacion exitosa");
+            }
         }
     }
 }

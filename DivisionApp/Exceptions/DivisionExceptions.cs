@@ -12,27 +12,28 @@ namespace DivisionApp.Exceptions
         {
             throw new CustomException();
         }
-        public static void ThrowExceptions() {
-			try
-			{
-				 
-			}
-			catch (DivideByZeroException e)
-			{
+        public static void ThrowExceptions()
+        {
+            try
+            {
 
-				throw e;
-			}
-			catch (Exception e)
-			{
-				throw e;
-			}
+            }
+            catch (DivideByZeroException e)
+            {
+
+                throw e;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public static void DoDivision(int a, int b)
         {
             try
             {
-                int result = a/b;
+                int result = a / b;
 
                 Console.WriteLine($"Result: {result}");
             }
@@ -42,7 +43,11 @@ namespace DivisionApp.Exceptions
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Exepcion: {e.Message}");                
+                Console.WriteLine($"Exepcion: {e.Message}");
+            }
+            finally
+            {
+                Console.WriteLine("Division exitosa");
             }
         }
     }
