@@ -1,53 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DivisionApp.Extensions;
 
 namespace DivisionApp.Exceptions
 {
     public class DivisionExceptions
     {
-        public static void ThrowCustomException()
-        {
-            throw new CustomException();
-        }
-        public static void ThrowExceptions()
+        public static void Division(decimal dividend, decimal divisor, bool doing)
         {
             try
             {
-
+                Console.WriteLine($"Resultado: {dividend.DoDivision(divisor)}");
             }
-            catch (DivideByZeroException e)
-            {
-
-                throw e;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        public static void DoDivision(int a, int b)
-        {
-            try
-            {
-                int result = a / b;
-
-                Console.WriteLine($"Result: {result}");
-            }
-            catch (DivideByZeroException e)
+            catch (DivideByZeroException ex)
             {
                 Console.WriteLine("¡Solo Chuck Norris divide por 0!");
+                Console.WriteLine($"Error: {ex.Message}");
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine($"Exepcion: {e.Message}");
+                Console.WriteLine($"Error: {ex.Message}");
             }
             finally
             {
-                Console.WriteLine("Division exitosa");
+                Console.WriteLine("Division finalizada!" + Environment.NewLine);                
             }
         }
     }

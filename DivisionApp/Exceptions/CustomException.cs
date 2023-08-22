@@ -8,8 +8,19 @@ namespace DivisionApp.Exceptions
 {
     public class CustomException : Exception
     {
-        public CustomException() :base("Mensaje de error de Custom Exception") 
-        { 
+        private string message;
+
+        public CustomException(String message)
+        {
+            this.message = message;
+        }   
+        
+        public override string Message
+        {
+            get
+            {
+                return $"Mensaje personalizado: {message}";
+            }
         }
     }
 }

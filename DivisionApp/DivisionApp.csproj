@@ -45,7 +45,8 @@
   <ItemGroup>
     <Compile Include="Exceptions\CustomException.cs" />
     <Compile Include="Exceptions\DivisionExceptions.cs" />
-    <Compile Include="Logic.cs" />
+    <Compile Include="Exceptions\Logic.cs" />
+    <Compile Include="Extensions\IntegerExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
