@@ -1,4 +1,4 @@
-namespace EFApp.Data
+namespace EFApp.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -6,27 +6,28 @@ namespace EFApp.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Territories
+    public partial class Categories
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Territories()
+        public Categories()
         {
-            Employees = new HashSet<Employees>();
+            Products = new HashSet<Products>();
         }
 
         [Key]
-        [StringLength(20)]
-        public string TerritoryID { get; set; }
+        public int CategoryID { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string TerritoryDescription { get; set; }
+        [StringLength(15)]
+        public string CategoryName { get; set; }
 
-        public int RegionID { get; set; }
+        [Column(TypeName = "ntext")]
+        public string Description { get; set; }
 
-        public virtual Region Region { get; set; }
+        [Column(TypeName = "image")]
+        public byte[] Picture { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employees> Employees { get; set; }
+        public virtual ICollection<Products> Products { get; set; }
     }
 }

@@ -50,23 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Categories.cs" />
-    <Compile Include="CustomerDemographics.cs" />
-    <Compile Include="Customers.cs" />
-    <Compile Include="Employees.cs" />
     <Compile Include="NorthwindContext.cs" />
-    <Compile Include="Orders.cs" />
-    <Compile Include="Order_Details.cs" />
-    <Compile Include="Products.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Region.cs" />
-    <Compile Include="Shippers.cs" />
-    <Compile Include="Suppliers.cs" />
-    <Compile Include="Territories.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EFApp.Entities\EFApp.Entities.csproj">
+      <Project>{694af3ce-45ad-4ca2-96e4-fe1429ee2aea}</Project>
+      <Name>EFApp.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

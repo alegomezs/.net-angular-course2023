@@ -1,4 +1,4 @@
-namespace EFApp.Data
+namespace EFApp.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -6,18 +6,16 @@ namespace EFApp.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Customers
+    public partial class Suppliers
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customers()
+        public Suppliers()
         {
-            Orders = new HashSet<Orders>();
-            CustomerDemographics = new HashSet<CustomerDemographics>();
+            Products = new HashSet<Products>();
         }
 
         [Key]
-        [StringLength(5)]
-        public string CustomerID { get; set; }
+        public int SupplierID { get; set; }
 
         [Required]
         [StringLength(40)]
@@ -50,10 +48,10 @@ namespace EFApp.Data
         [StringLength(24)]
         public string Fax { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Orders> Orders { get; set; }
+        [Column(TypeName = "ntext")]
+        public string HomePage { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CustomerDemographics> CustomerDemographics { get; set; }
+        public virtual ICollection<Products> Products { get; set; }
     }
 }

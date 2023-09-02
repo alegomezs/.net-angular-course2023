@@ -1,4 +1,4 @@
-namespace EFApp.Data
+namespace EFApp.Entities
 {
     using System;
     using System.Collections.Generic;
