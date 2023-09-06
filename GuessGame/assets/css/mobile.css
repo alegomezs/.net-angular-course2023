@@ -1,0 +1,27 @@
+@media screen and (max-width: 860px) {
+    #header #title h1 {
+        font-size: 10px;
+    }
+
+    #main div.result {
+        top: 115px;
+    }
+    
+    #main div#container {        
+        display: block;          
+    }
+
+    #main #form-section,
+    #main #status {        
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #main #status div#hint
+    {
+        display: block;
+        padding: 10px 0;
+        width: 100%;
+    }   
+  }

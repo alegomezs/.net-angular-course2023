@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("main.css");
+@import url("form.css");
+@import url("mobile.css");
+
+:root {
+    --custom-font: 'Press Start 2P', cursive;
+}
+
+body {
+    background-color: ghostwhite;
+    font-family: var(--custom-font);
+    color: rgb(58, 58, 58);    
+    margin: 0 auto;    
+}
+
+#header {
+    margin: 50px 0 100px;
+}
+
+#header h1 {
+    font-size: 20px;
+    text-align: center;
+}
+
+#header h1 #condition {
+    background-color: #0dcaf0;
+    padding: 10px 5px;
+    border-radius: 20px;
+}
+
+#footer {
+    padding: 50px 0px;
+    background-color: #fff4ca;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#footer #repo{
+    text-decoration: none;
+    transition: ease-out 0.2s; 
+    width: fit-content;
+    margin: 0 auto;
+    display: block;
+    color: darkgoldenrod;
+}
+
+#footer #repo:hover{
+    color: rgb(0, 0, 0); 
+    transition: ease-in 0.2s;   
+}

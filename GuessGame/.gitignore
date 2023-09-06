@@ -1,0 +1,11 @@
+.vs
+DivisionApp
+DivisionAppTests
+EFApp
+LinqTP.Data
+LinqTP.Entities
+LinqTP.Logic.DTO
+LinqTP.Logic
+LinqTP.UnitTest
+LinqTP
+TransportApp
