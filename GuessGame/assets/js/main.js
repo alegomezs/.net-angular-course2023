@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     function resetGame() {
-        score = 10;
+        score = 0   ;
         resultText.textContent = '?';
         document.getElementById('highscore').textContent = highScore;
         hint.textContent = '';
@@ -35,7 +35,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         const guessNumber = parseInt(document.getElementById('guess').value);
 
         if (guessNumber === result) {
-            hint.textContent = '¡Felicidades! Has adivinado el número correctamente.';
+            hint.textContent = 'Numero correcto!';
+            document.getElementsByTagName('body').classList.add('winner').    
             resultText.textContent = result;
             score += 1;
             if (score > highScore) {

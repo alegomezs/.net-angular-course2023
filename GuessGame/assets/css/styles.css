@@ -11,7 +11,13 @@ body {
     background-color: ghostwhite;
     font-family: var(--custom-font);
     color: rgb(58, 58, 58);    
-    margin: 0 auto;    
+    margin: 0 auto; 
+    transition: ease-out 0.2s;    
+}
+
+body.winner {
+    background-color: #00a700;
+    transition: ease-in 0.2s;
 }
 
 #header {
