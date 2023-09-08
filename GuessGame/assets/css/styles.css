@@ -13,10 +13,11 @@ body {
     color: rgb(58, 58, 58);    
     margin: 0 auto; 
     transition: ease-out 0.2s;    
+    text-align: center;
 }
 
 body.winner {
-    background-color: #00a700;
+    background-color: #56c756;
     transition: ease-in 0.2s;
 }
 
