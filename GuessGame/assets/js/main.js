@@ -2,20 +2,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let result;
     let score = 20;
     let highScore = 0;
-    let hint = document.getElementById('hint-text');
-    let resultText =  document.getElementById('result');
-    let send =  document.getElementById('send');
-    let reset =  document.getElementById('reset');      
+    let hintElement = document.getElementById('hint-text');
+    let resultElement =  document.getElementById('result');
+    let sendElement =  document.getElementById('send');
+    let resetElement =  document.getElementById('reset');  
+    let scoreElement = document.getElementById('score');    
+    let highScoreElement = document.getElementById('highscore');
 
-    send.addEventListener('click', function(event){
+    sendElement.addEventListener('click', function(event){
         event.preventDefault()
       });
-    reset.addEventListener('click', function(event){
+    resetElement.addEventListener('click', function(event){
         event.preventDefault()
     });
 
-    reset.addEventListener('click', resetGame);
-    send.addEventListener('click', guess);
+    resetElement.addEventListener('click', resetGame);
+    sendElement.addEventListener('click', guess);
     
     generateNumber();
 
@@ -27,10 +29,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
         score = 20;
         document.getElementById('body').classList.remove('winner');  
         document.getElementById('guess').value =  '';        
-        resultText.textContent = '?';
-        document.getElementById('highscore').textContent = highScore;
-        document.getElementById('score').textContent = score;
-        hint.textContent = '';
+        resultElement.textContent = '?';
+        highScoreElement.textContent = highScore;
+        scoreElement.textContent = score;
+        hintElement.textContent = '';
         generateNumber();
     }
 
@@ -41,36 +43,36 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if (condition.isValid) {
             if (score !== 0) {     
                 if (guessNumber === result) {
-                    hint.textContent = 'Numero correcto!';
+                    hintElement.textContent = 'Numero correcto!';
                     document.getElementById('body').classList.add('winner');                       
-                    resultText.textContent = result;            
+                    resultElement.textContent = result;            
                     if (score > highScore) {
                         highScore = score;
                     }
-                    document.getElementById('score').textContent = highScore;
-                    document.getElementById('highscore').textContent = highScore;
-                    resultText.textContent = result;                
+                    scoreElement.textContent = highScore;
+                    highScore.textContent = highScore;
+                    resultElement.textContent = result;                
                 } else {            
                     score -= 1;                
                     if (score === 0) {
                         console.log(score);
-                        hint.textContent = `Has agotado tus intentos. El número correcto era ${result}.`;            
-                        document.getElementById('score').textContent = score;
-                        resultText.textContent = result; 
+                        hintElement.textContent = `Has agotado tus intentos. El número correcto era ${result}.`;            
+                        scoreElement.textContent = score;
+                        resultElement.textContent = result; 
                     } else if (guessNumber < result) {
-                        hint.textContent = 'Muy bajo!';
-                        document.getElementById('score').textContent = score; 
+                        hintElement.textContent = 'Muy bajo!';
+                        scoreElement.textContent = score; 
                     } else {
-                        hint.textContent = 'Muy Alto!';
-                        document.getElementById('score').textContent = score; 
+                        hintElement.textContent = 'Muy Alto!';
+                        scoreElement.textContent = score; 
                     }
                 }
             } else {
-                hint.textContent = `Chuck Norris lo hubiera hecho menos intentos. Debes reiniciar el juego!`;
+                hintElement.textContent = `Chuck Norris lo hubiera hecho menos intentos. Debes reiniciar el juego!`;
             }                  
         }
         else {
-            hint.textContent = condition.message;
+            hintElement.textContent = condition.message;
         }
     }
 
