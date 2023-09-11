@@ -1,0 +1,45 @@
+﻿@model List<EFApp.MVC.Models.EmployeesView>
+
+@{
+    ViewBag.Title = "Employee";
+}
+
+<main>
+    <section class="row jumbotron" aria-labelledby="aspnetTitle">
+        <h1 id="title">Empleados <span>@Html.ActionLink("Crear", "CreateUpdate", "Employee", new { area = "" }, new { @class = "btn btn btn-success" })</span></h1>       
+        <p class="lead">Lista completa de empleados.</p>
+    </section>
+
+    <div class="row">
+        <section class="col-md-4" aria-labelledby="gettingStartedTitle">            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col" colspan="3">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var employee in Model)
+                    {
+                        <tr>
+                            <th scope="row">@employee.EmployeeID</th>
+                            <td>@employee.LastName</td>
+                            <td>@employee.FirstName</td>
+                            <td>@employee.HomePhone</td>
+                            <td>
+                            @Html.ActionLink("Eliminar", "Delete", new { id = employee.EmployeeID}, new { @class = "btn btn btn-danger" })
+                            </td>                            
+                            <td>                                
+                                <a href="@Url.Action("CreateUpdate", "Employee", new { id = employee.EmployeeID })" class="btn btn-success" title="Editar Transporte"><i class="bi bi-pencil-square-o" aria-hidden="true"></i></a>
+                            </td>                                                       
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </section>        
+    </div>
+</main>

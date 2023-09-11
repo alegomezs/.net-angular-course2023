@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Oops! Hubo un Error!";
+}
+
+
+<main>
+    <section class="row jumbotron" aria-labelledby="aspnetTitle">
+        <h1 id="title">Crear empleado</h1>
+        <p class="lead">No se pudo crear por un error inesperado.</p>
+    </section>
+
+    <div class="row">
+        @Html.ActionLink("Volver", "Index", "Employee", new { area = "" }, new { @class = "nav-link" })
+    </div>
+</main>

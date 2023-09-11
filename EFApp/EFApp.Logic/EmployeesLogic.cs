@@ -1,16 +1,15 @@
-﻿using EFApp.Data;
-using EFApp.Entities;
-using System;
+﻿using EFApp.Entities;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EFApp.Logic
 {
     public class EmployeesLogic : BaseLogic, ICRUDLogic<Employees>
     {
+        public Employees Get(int id)
+        {
+            return context.Employees.Find(id);
+        }
         public List<Employees> GetAll(){ 
             return context.Employees.ToList();
         }

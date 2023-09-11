@@ -1,8 +1,5 @@
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
-using System.Linq;
 using EFApp.Entities;
+using System.Data.Entity;
 
 namespace EFApp.Data
 {

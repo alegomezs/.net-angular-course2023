@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFApp.Data", "EFApp.Data\EF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFApp.Entities", "EFApp.Entities\EFApp.Entities.csproj", "{694AF3CE-45AD-4CA2-96E4-FE1429EE2AEA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFApp.MVC", "EFApp.MVC\EFApp.MVC.csproj", "{BEA35665-7A7E-4CF5-A039-7F210BF5A96C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{694AF3CE-45AD-4CA2-96E4-FE1429EE2AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{694AF3CE-45AD-4CA2-96E4-FE1429EE2AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{694AF3CE-45AD-4CA2-96E4-FE1429EE2AEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEA35665-7A7E-4CF5-A039-7F210BF5A96C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEA35665-7A7E-4CF5-A039-7F210BF5A96C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEA35665-7A7E-4CF5-A039-7F210BF5A96C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEA35665-7A7E-4CF5-A039-7F210BF5A96C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

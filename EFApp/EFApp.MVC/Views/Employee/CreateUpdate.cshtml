@@ -1,0 +1,41 @@
+﻿@model EFApp.MVC.Models.EmployeesView
+
+@if (Model == null)
+{
+
+    ViewBag.Title = "Crear Empleado";  
+}
+else
+{
+    ViewBag.Title = "Editar Empleado";
+}
+
+
+<main>
+    <section class="row jumbotron" aria-labelledby="aspnetTitle">        
+        <p class="lead">Formulario para completar datos del empleado y guardar en la base.</p>
+    </section>
+    <div class="row">
+        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+            @using (Html.BeginForm("CreateUpdate", "Employee", FormMethod.Post))
+            {
+                <form>
+                    @Html.AntiForgeryToken()
+                    <div class="mb-3">
+                        <label class="form-label">Apellidos</label>
+                        @Html.TextBoxFor(e => e.LastName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(e => e.LastName, null, new { @class = "text-danger" })
+                        <label class="form-label">Nombres</label>
+                        @Html.TextBoxFor(e => e.FirstName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(e => e.FirstName, null, new { @class = "text-danger" })
+                        <label class="form-label">Teléfono</label>
+                        @Html.TextBoxFor(e => e.HomePhone, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(e => e.HomePhone, null, new { @class = "text-danger" })
+
+                        <button class="btn btn-success" type="submit">Guardar</button>
+                    </div>
+                </form>
+            }
+        </section>
+    </div>
+</main>
