@@ -46,6 +46,7 @@ else
                             @Html.ValidationMessageFor(e => e.HomePhone, null, new { @class = "text-danger" })
                             <label for="floatingHomePhone">Teléfono</label>
                         </div>
+                        @Html.ActionLink("Volver", "Index", "Employee", new { area = "" }, new { @class = "btn btn-light" })                        
                         <button class="btn @ViewBag.BtnClass" type="submit">@ViewBag.ButtonText</button>
                     </div>
                 </form>
