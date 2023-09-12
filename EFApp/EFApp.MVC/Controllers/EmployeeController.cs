@@ -28,22 +28,41 @@ namespace EFApp.MVC.Controllers
             return View(employeesView);
         }
 
-        [HttpGet]
-        public ActionResult Delete(int id)
+        public JsonResult delete(int id = 0)
         {
-            try
-            {
-                employeesLogic.Delete(id);
+            bool ok = false;
+            string message = "";
 
-                return RedirectToAction("Index");
-            }
-            catch (Exception ex)
+            if (id == 0)
             {
-                return RedirectToAction("Index", "Error");
+                message = "Debe seleccionar el empleado que desea eliminar";
             }
+            else
+            {
+                try
+                {
+                    employeesLogic.Delete(id);
+                    ok = true;
+                    message = "El empleado se ha eliminado correctamente";
+                }
+                catch (System.FormatException e)
+                {
+                    message = "\nNo se pudo eliminar el empleado. \nMotivo: seguro ingreso una letra o no ingreso nada";
+                }
+                catch (System.ArgumentNullException)
+                {
+                    message = "\nNo se pudo eliminar el empleado. \nMotivo: no se encontró ningún empleado con el ID ingresado";
+                }
+                catch (System.Data.Entity.Infrastructure.DbUpdateException e)
+                {
+                    message = "\nNo se pudo eliminar el empleado. \nMotivo: el empleado que desea eliminar está siendo utilizado como referencia.";
+                }
+            }
+
+            return Json(new { ok = ok, message = message }, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult CreateUpdate(EmployeesView employeesView)
         {            
             try
@@ -65,7 +84,7 @@ namespace EFApp.MVC.Controllers
                         employees.FirstName = employeesView.FirstName;
                         employees.LastName = employeesView.LastName;
                         employees.HomePhone = employeesView.HomePhone;
-                        employeesLogic.Update(employees);
+                        employeesLogic.Update(employees);                        
                     }
                     
                     return RedirectToAction("Index");
@@ -74,10 +93,11 @@ namespace EFApp.MVC.Controllers
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                return RedirectToAction("Index", "Error");
             }
         }
-        
+
+        [HttpGet]
         public ActionResult CreateUpdate(int id = 0)
         {
             try
@@ -87,6 +107,7 @@ namespace EFApp.MVC.Controllers
                 {
                     Employees emplopyee = employeesLogic.Get(id);
                     employeeView = new EmployeesView();
+                    employeeView.EmployeeID = emplopyee.EmployeeID;
                     employeeView.LastName = emplopyee.LastName;
                     employeeView.FirstName = emplopyee.FirstName;                    
                     employeeView.HomePhone = emplopyee.HomePhone;

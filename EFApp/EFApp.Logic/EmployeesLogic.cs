@@ -31,6 +31,7 @@ namespace EFApp.Logic
         {
             var employeeUpdate = context.Employees.Find(newEmployee.EmployeeID);
             employeeUpdate.HomePhone = newEmployee.HomePhone;
+            employeeUpdate.HomePhone = newEmployee.HomePhone;
             context.SaveChanges();
         }
     }

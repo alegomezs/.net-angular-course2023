@@ -3,16 +3,21 @@
 @if (Model == null)
 {
 
-    ViewBag.Title = "Crear Empleado";  
+    ViewBag.Title = "Crear Empleado";
+    ViewBag.ButtonText = "Crear";
+    ViewBag.BtnClass = "btn-success";
 }
 else
 {
     ViewBag.Title = "Editar Empleado";
+    ViewBag.ButtonText = "Editar";
+    ViewBag.BtnClass = "btn-primary";
 }
 
 
 <main>
-    <section class="row jumbotron" aria-labelledby="aspnetTitle">        
+    <section class="row jumbotron" aria-labelledby="aspnetTitle">
+        <h1>@ViewBag.Title</h1>
         <p class="lead">Formulario para completar datos del empleado y guardar en la base.</p>
     </section>
     <div class="row">
@@ -22,17 +27,26 @@ else
                 <form>
                     @Html.AntiForgeryToken()
                     <div class="mb-3">
-                        <label class="form-label">Apellidos</label>
-                        @Html.TextBoxFor(e => e.LastName, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(e => e.LastName, null, new { @class = "text-danger" })
-                        <label class="form-label">Nombres</label>
-                        @Html.TextBoxFor(e => e.FirstName, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(e => e.FirstName, null, new { @class = "text-danger" })
-                        <label class="form-label">Teléfono</label>
-                        @Html.TextBoxFor(e => e.HomePhone, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(e => e.HomePhone, null, new { @class = "text-danger" })
-
-                        <button class="btn btn-success" type="submit">Guardar</button>
+                        @if (Model != null)
+                        {
+                            @Html.HiddenFor(e => e.EmployeeID)
+                        }
+                        <div class="form-floating mb-3">
+                            @Html.TextBoxFor(e => e.LastName, new { @class = "form-control", @id = "floatingLastName" })
+                            @Html.ValidationMessageFor(e => e.LastName, null, new { @class = "text-danger" })
+                            <label for="floatingLastName">Apellidos</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            @Html.TextBoxFor(e => e.FirstName, new { @class = "form-control", @id = "floatingFirstName" })
+                            @Html.ValidationMessageFor(e => e.FirstName, null, new { @class = "text-danger" })
+                            <label for="floatingFirstName">Nombres</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            @Html.TextBoxFor(e => e.HomePhone, new { @class = "form-control", @id = "floatingHomePhone" })
+                            @Html.ValidationMessageFor(e => e.HomePhone, null, new { @class = "text-danger" })
+                            <label for="floatingHomePhone">Teléfono</label>
+                        </div>
+                        <button class="btn @ViewBag.BtnClass" type="submit">@ViewBag.ButtonText</button>
                     </div>
                 </form>
             }

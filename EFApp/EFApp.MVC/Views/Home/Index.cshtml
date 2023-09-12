@@ -12,35 +12,25 @@
         <section class="col-md-4" aria-labelledby="gettingStartedTitle">
             <div class="card">
                 <div class="card-header">
-                    <h2 id="gettingStartedTitle">Lista de Empleados</h2>
+                    <h2 id="gettingStartedTitle">Empleados</h2>
                 </div>
                 <div class="card-body">
                     <p>
-                        Obtenga una lista completa de ellos.
+                        Obtenga una lista completa de ellos y administrelos de manera simple.
                     </p>
                     <div>@Html.ActionLink("Vamos!", "Index", "Employee", new { area = "" }, new { @class = "btn btn-outline-dark" })</div>
                 </div>
             </div>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">                                   
-            <div class="card">
-                <div class="card-header">
-                    <h2 id="librariesTitle">Alta, Baja y Modificación</h2>
-                </div>
-                <div class="card-body">
-                    <p>Administrelos de manera intuitiva y simple.</p>
-                    <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Vamos! &raquo;</a></p>
-                </div>
-            </div>
-        </section>
+        </section>       
         <section class="col-md-4" aria-labelledby="hostingTitle">                        
             <div class="card">
                 <div class="card-header">
-                    <h2 id="hostingTitle">Reportes</h2>
+                    <h2 id="hostingTitle">Crear Empleado</h2>
                 </div>
                 <div class="card-body">
-                    <p>Un listado de reportes que pueda necesitar.</p>
-                    <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Vamos! &raquo;</a></p>
+                    <p>Complete el formulario para crear un empleado.</p>
+                    <a href="@Url.Action("CreateUpdate", "Employee")" class="btn btn-outline-dark" title="Crear Empleado">Vamos!</a>
+
                 </div>
             </div>
         </section>
