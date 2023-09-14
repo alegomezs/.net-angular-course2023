@@ -1,0 +1,22 @@
+﻿<main>
+    <section class="row jumbotron" aria-labelledby="aspnetTitle">
+        <h1 id="title">EFApp</h1>
+        <p class="lead">Supervise los empleados de su empresa de manera eficiente, fácil y diveretida.</p>
+    </section>
+
+    <div class="row">
+        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+            <div class="card">
+                <div class="card-header">
+                    <h2 id="gettingStartedTitle">Empleados</h2>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Obtenga una lista completa de ellos.
+                    </p>
+                    <div>@Html.ActionLink("Vamos!", "Index", "Employees", new { area = "" }, new { @class = "btn btn-outline-dark" })</div>
+                </div>
+            </div>
+        </section>
+     </div>
+</main>

@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "6b3027a1-17d0-4b5b-8097-8cb6d0a217e1",
+		"name": "EFApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2007375"
+	},
+	"item": [
+		{
+			"name": "Empleados",
+			"item": [
+				{
+					"name": "Obtener empleados",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/employees",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insertar empleado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"FirstName\": \"Pedro\",\r\n    \"LastName\": \"Escamoso\",\r\n    \"HomePhone\": \"03624544166\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/employees",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener empleado por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44383/api/employees/{id}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"employees",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar empleado",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"EmployeeID\": 24,\r\n    \"FirstName\": \"Pepe\",\r\n    \"LastName\": \"Argento\",\r\n    \"HomePhone\": \"03722544545\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44383/api/employees",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar empleado por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44383/api/employees/23",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"employees",
+								"23"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Exposición de la entidad Employee y sus endpoints."
+		}
+	]
+}

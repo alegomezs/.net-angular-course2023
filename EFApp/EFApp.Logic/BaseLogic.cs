@@ -10,5 +10,10 @@ namespace EFApp.Logic
         {
             context = new NorthwindContext();
         }
+
+        public BaseLogic(NorthwindContext context)
+        {
+            this.context = context;
+        }
     }
 }

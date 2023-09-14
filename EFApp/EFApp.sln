@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFApp.Entities", "EFApp.Ent
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFApp.MVC", "EFApp.MVC\EFApp.MVC.csproj", "{BEA35665-7A7E-4CF5-A039-7F210BF5A96C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFApp.API", "EFApp.API\EFApp.API.csproj", "{5FA0F1AB-04B8-43FE-86A4-7F6BC076DF3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFApp.API.Tests", "EFApp.API.Tests\EFApp.API.Tests.csproj", "{2F232DD2-94C8-4DB2-9DF9-60C45E6BC5F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{BEA35665-7A7E-4CF5-A039-7F210BF5A96C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEA35665-7A7E-4CF5-A039-7F210BF5A96C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEA35665-7A7E-4CF5-A039-7F210BF5A96C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FA0F1AB-04B8-43FE-86A4-7F6BC076DF3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FA0F1AB-04B8-43FE-86A4-7F6BC076DF3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FA0F1AB-04B8-43FE-86A4-7F6BC076DF3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FA0F1AB-04B8-43FE-86A4-7F6BC076DF3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F232DD2-94C8-4DB2-9DF9-60C45E6BC5F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F232DD2-94C8-4DB2-9DF9-60C45E6BC5F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F232DD2-94C8-4DB2-9DF9-60C45E6BC5F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F232DD2-94C8-4DB2-9DF9-60C45E6BC5F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

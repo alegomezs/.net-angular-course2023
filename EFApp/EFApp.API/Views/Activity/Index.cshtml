@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Asignador de actividad diaria!";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>@ViewBag.Title</h2>
+    </div>    
+    <div class="col-md-12 mt-5">
+        <div class="card" style="width: 18rem;">            
+            <div class="card-body">
+                <h5 class="card-title">Tu actividad es...</h5>
+                <div id="loadingDiv" class="spinner-border text-primary" aria-hidden="false"></div>
+                <p id="activity-api" class="card-text"></p>
+                <button id="btn-activity" class="btn btn-primary mt-2">
+                    <span class="btn-activity-text">Quiero otra actividad!</span>
+                </button>
+            </div>
+        </div>        
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $.support.cors = true;
+        $(function () {                    
+            $("#btn-activity").click(function () {
+                document.getElementById("loadingDiv").style.display = 'block';
+                document.getElementById("activity-api").style.display = 'none';
+                $.get("https://www.boredapi.com/api/activity").done(function (data) {
+                    document.getElementById("loadingDiv").style.display = 'none';
+                    document.getElementById("activity-api").style.display = 'block';
+                    document.getElementById("activity-api").innerHTML = data.activity;
+                 
+                }).fail(function (err) {
+                    alert("No se pudo cargar la actividad.");
+                });
+            });
+
+            $("#btn-activity").click();
+        });        
+    </script>
+}

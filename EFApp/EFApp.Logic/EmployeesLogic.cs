@@ -1,4 +1,5 @@
-﻿using EFApp.Entities;
+﻿using EFApp.Data;
+using EFApp.Entities;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,6 +7,11 @@ namespace EFApp.Logic
 {
     public class EmployeesLogic : BaseLogic, ICRUDLogic<Employees>
     {
+        public EmployeesLogic() { }
+
+        public EmployeesLogic(NorthwindContext context) : base(context) 
+        { }
+
         public Employees Get(int id)
         {
             return context.Employees.Find(id);

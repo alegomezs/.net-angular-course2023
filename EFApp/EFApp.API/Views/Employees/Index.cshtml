@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Lista de empleados";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>@ViewBag.Title.</h2>
+    </div>
+    <div class="col-md-12">
+        <div id="loadingDiv" class="spinner-border text-primary"></div>
+        <div id="empleados-api" class="row">
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(function () {  
+            $('#loadingDiv').show();
+            $.get("https://localhost:44383/api/employees").done(function (data) {
+                $('#loadingDiv').hide();
+                let table = `<table class="table table-striped">
+                    <thead class="table-dark" >
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">Teléfono</th>                            
+                        </tr>
+                        </thead >
+                    <tbody>`;
+                data.map(function (currentValue) {
+
+                    table +=
+                        `<tr>
+                            <th scope="row">${currentValue.EmployeeID}</th>
+                            <td>${currentValue.LastName}</td>
+                            <td>${currentValue.FirstName}</td>
+                            <td>${currentValue.HomePhone}</td>                            
+                        </tr>
+                        `;
+                });
+                
+                table += "</tbody ></table>";
+                
+                document.getElementById('empleados-api').innerHTML = table;
+            }).fail(function (err) {
+                alert("No se pudo cargar la lista de empleados.");
+            });
+
+        });
+    </script>
+}
