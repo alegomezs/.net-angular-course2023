@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFApp.API", "EFApp.API\EFAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFApp.API.Tests", "EFApp.API.Tests\EFApp.API.Tests.csproj", "{2F232DD2-94C8-4DB2-9DF9-60C45E6BC5F8}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "EFApp.Angular", "EFApp.Angular\EFApp.Angular.esproj", "{1A0427E4-24DD-4CB3-9FFB-543C8E5B587E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,12 @@ Global
 		{2F232DD2-94C8-4DB2-9DF9-60C45E6BC5F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F232DD2-94C8-4DB2-9DF9-60C45E6BC5F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F232DD2-94C8-4DB2-9DF9-60C45E6BC5F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A0427E4-24DD-4CB3-9FFB-543C8E5B587E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A0427E4-24DD-4CB3-9FFB-543C8E5B587E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A0427E4-24DD-4CB3-9FFB-543C8E5B587E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1A0427E4-24DD-4CB3-9FFB-543C8E5B587E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A0427E4-24DD-4CB3-9FFB-543C8E5B587E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A0427E4-24DD-4CB3-9FFB-543C8E5B587E}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
