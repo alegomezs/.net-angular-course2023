@@ -13,7 +13,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./read-delete-employee.component.css'],
 })
 export class ReadDeleteEmployeeComponent implements OnInit, AfterViewInit {
-  listEmployees: Array<Employee> = [];
   displayedColumns: string[] = ['ID', 'Nombres', 'Apellidos', 'Teléfono', 'Acciones'];
   modalTitle: string = '';
   snackTitle: string = '';
@@ -28,13 +27,15 @@ export class ReadDeleteEmployeeComponent implements OnInit, AfterViewInit {
 
   constructor(
     private employeesService: EmployeesService,
-    private _snackBar: MatSnackBar) { }
-  
+    private _snackBar: MatSnackBar) {
+  }
+
   ngOnInit(): void {
+    this.dataSource = new MatTableDataSource(new Array <Employee>);
     this.getEmployees();
   }
 
-  ngAfterViewInit() {    
+  ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
@@ -54,13 +55,12 @@ export class ReadDeleteEmployeeComponent implements OnInit, AfterViewInit {
       showConfirmButton: false,
     });
 
-    Swal.showLoading();
+    Swal.showLoading(null);
 
     this.employeesService.getEmployees().subscribe({
       next: res => {
-        Swal.close();
-        this.listEmployees = res;
-        this.dataSource = new MatTableDataSource(this.listEmployees);
+        Swal.close();        
+        this.dataSource.data = res;
       },
       error: err => {
         Swal.close();
@@ -98,10 +98,10 @@ export class ReadDeleteEmployeeComponent implements OnInit, AfterViewInit {
 
     Swal.fire({
       title: 'Confirmar',
-      html: `¿Estás segura de que quieres eliminar el emplado: <b>${employee.FirstName + employee.LastName}</b>?`,
+      html: `¿Desea eliminar a <b>${employee.FirstName} ${employee.LastName}</b>?`,
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: '¡Si, eliminar!',
+      confirmButtonText: 'Si, eliminar',
       cancelButtonText: 'No',
     }).then((result: any) => {
 
@@ -111,7 +111,7 @@ export class ReadDeleteEmployeeComponent implements OnInit, AfterViewInit {
           showConfirmButton: false,
         });
 
-        Swal.showLoading();
+        Swal.showLoading(null);
 
         this.employeesService.deleteEmployee(employee.EmployeeID).subscribe({
           next: res => {
@@ -125,7 +125,7 @@ export class ReadDeleteEmployeeComponent implements OnInit, AfterViewInit {
               closeModalBtn.click();
             }
             this.snackTitle = "Exito!";
-            this.snackDescription = `Se eliminó a ${this.employee.FirstName} ${this.employee.LastName}.`;
+            this.snackDescription = `Eliminacíón exitosa!.`;
             this.openSnackBar(this.snackTitle, this.snackDescription, this.snackDuration, "success");
           },
           error: err => {

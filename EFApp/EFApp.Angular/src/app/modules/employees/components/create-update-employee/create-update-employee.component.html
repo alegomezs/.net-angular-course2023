@@ -23,5 +23,5 @@
       <div *ngIf="f['homePhone'].errors['maxlength']">El máximo es 40 carácteres</div>
     </div>
   </div>
-  <button type="submit" [ngClass]="employee.EmployeeID == 0 ? 'btn-primary' : 'btn-success'" class="btn btn-primary mt-3" [disabled]="this.formEmployee.invalid">{{ btnName }}</button>
+  <button type="submit" [ngClass]="employee.EmployeeID == 0 ? 'btn-success' : 'btn-primary'" class="btn btn-primary mt-3" [disabled]="this.formEmployee.invalid">{{ btnName }}</button>
 </form>

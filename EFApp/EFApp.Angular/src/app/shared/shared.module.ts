@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';   
+import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -19,7 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent,             
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -33,7 +33,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-    MatTooltipModule,   
+    MatTooltipModule,
     MatSortModule,
     MatSnackBarModule
   ],
@@ -49,7 +49,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-    MatTooltipModule,   
+    MatTooltipModule,
     MatSortModule,
     MatSnackBarModule,
   ]

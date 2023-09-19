@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DefaultModule } from './layouts/default/default.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { EmployeesInterceptor } from './modules/employees/services/employees.service';
+
 
 
 @NgModule({
@@ -13,9 +16,16 @@ import { DefaultModule } from './layouts/default/default.module';
   imports: [
     BrowserModule,
     DefaultModule,
-    AppRoutingModule, 
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: EmployeesInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

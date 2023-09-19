@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
@@ -29,5 +29,18 @@ export class EmployeesService {
 
   public deleteEmployee(id: number | string) {
     return this.http.delete(environment.apiEmployees + this.endpoint + `/${id}`);
+  }
+}
+@Injectable()
+export class EmployeesInterceptor {
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    const modifiedReq = req.clone({
+      setHeaders: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }
+    });
+
+    return next.handle(modifiedReq);
   }
 }

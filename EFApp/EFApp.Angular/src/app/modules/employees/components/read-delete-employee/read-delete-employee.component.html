@@ -10,18 +10,18 @@
 </div>
     -->
 
-<mat-form-field color="accent">
+<mat-form-field id="employeeFilter" color="accent">
   <mat-label>Filtrar empleados</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Filtrar por..." #input>
 </mat-form-field>
 
 <!-- Add employee trigger modal -->
-<button mat-icon-button type="button" color="accent" aria-label="Crear empleado" (click)="modalCreate()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<button mat-icon-button type="button" color="accent"  matTooltip="Agregar empleado" aria-label="Crear empleado" (click)="modalCreate()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
   <mat-icon>person_add</mat-icon>
 </button>
 
 
-<table mat-table [dataSource]="listEmployees" class="mat-elevation-z8" matSort>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
   <ng-container matColumnDef="ID">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
@@ -63,7 +63,7 @@
 </table>
 <mat-paginator class="mb-5" color="accent" [pageSizeOptions]="[5, 10, 20]"
                showFirstLastButtons
-               aria-label="Select page of periodic elements">
+               aria-label="Select page of employees">
 </mat-paginator>
 
 
@@ -73,7 +73,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="staticBackdropLabel">{{ modalTitle }}</h3>
+        <h2 class="modal-title" id="staticBackdropLabel">{{ modalTitle }}</h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                 (click)="modalClose()" id="create-update-modal-close">
         </button>

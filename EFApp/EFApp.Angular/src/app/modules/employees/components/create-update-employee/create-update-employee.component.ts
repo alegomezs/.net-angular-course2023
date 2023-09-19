@@ -52,7 +52,7 @@ export class CreateUpdateEmployeeComponent implements OnInit {
       showConfirmButton: false,
     });
 
-    Swal.showLoading();
+    Swal.showLoading(null);
 
     const employee = new Employee();
 
@@ -91,7 +91,7 @@ export class CreateUpdateEmployeeComponent implements OnInit {
       showConfirmButton: false,
     });
 
-    Swal.showLoading();
+    Swal.showLoading(null);
 
     const employee = {
       EmployeeID: this.employee.EmployeeID,
@@ -114,6 +114,7 @@ export class CreateUpdateEmployeeComponent implements OnInit {
         this.openSnackBar(this.snackTitle, this.snackDescription, this.snackDuration, "success");
       },
       error: err => {
+        console.error(err);
         this.submittedEmployee.emit(false);
         Swal.close();
         Swal.fire({
@@ -130,7 +131,7 @@ export class CreateUpdateEmployeeComponent implements OnInit {
       {
         duration: seconds * 1000,
         panelClass: style,
-    });
+      });
   }
 
   submitEmployee() {
@@ -142,6 +143,4 @@ export class CreateUpdateEmployeeComponent implements OnInit {
   }
 
   get f() { return this.formEmployee.controls }
-
-
 }
