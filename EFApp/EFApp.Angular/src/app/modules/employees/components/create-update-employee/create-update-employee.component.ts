@@ -71,7 +71,7 @@ export class CreateUpdateEmployeeComponent implements OnInit {
 
         this.snackTitle = "Exito!";
         this.snackDescription = `Se creó a ${this.employee.FirstName} ${this.employee.LastName}.`;
-        this.openSnackBar(this.snackTitle, this.snackDescription, this.snackDuration, "success");
+        this._snackBar.open(this.snackTitle, this.snackDescription,{ duration: this.snackDuration * 1000,});
       },
       error: err => {
         this.submittedEmployee.emit(false);
@@ -111,7 +111,7 @@ export class CreateUpdateEmployeeComponent implements OnInit {
 
         this.snackTitle = "Exito!";
         this.snackDescription = `Se actualizó a ${this.employee.FirstName} ${this.employee.LastName}.`;
-        this.openSnackBar(this.snackTitle, this.snackDescription, this.snackDuration, "success");
+        this._snackBar.open(this.snackTitle, this.snackDescription,{ duration: this.snackDuration * 1000,});
       },
       error: err => {
         console.error(err);
@@ -124,14 +124,6 @@ export class CreateUpdateEmployeeComponent implements OnInit {
         });
       }
     });
-  }
-
-  openSnackBar(message: string, action: string, seconds: number, style: string) {
-    this._snackBar.open(message, action,
-      {
-        duration: seconds * 1000,
-        panelClass: style,
-      });
   }
 
   submitEmployee() {

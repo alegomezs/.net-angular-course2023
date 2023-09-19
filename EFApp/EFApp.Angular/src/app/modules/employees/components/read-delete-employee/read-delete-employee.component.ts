@@ -13,6 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./read-delete-employee.component.css'],
 })
 export class ReadDeleteEmployeeComponent implements OnInit, AfterViewInit {
+
   displayedColumns: string[] = ['ID', 'Nombres', 'Apellidos', 'Teléfono', 'Acciones'];
   modalTitle: string = '';
   snackTitle: string = '';
@@ -125,8 +126,8 @@ export class ReadDeleteEmployeeComponent implements OnInit, AfterViewInit {
               closeModalBtn.click();
             }
             this.snackTitle = "Exito!";
-            this.snackDescription = `Eliminacíón exitosa!.`;
-            this.openSnackBar(this.snackTitle, this.snackDescription, this.snackDuration, "success");
+            this.snackDescription = `Eliminacíón exitosa!.`;            
+            this._snackBar.open(this.snackTitle, this.snackDescription,{duration: this.snackDuration * 1000,});
           },
           error: err => {
             Swal.close();
@@ -140,14 +141,6 @@ export class ReadDeleteEmployeeComponent implements OnInit, AfterViewInit {
         });
       }
     });
-  }
-
-  openSnackBar(message: string, action: string, seconds: number, style: string) {
-    this._snackBar.open(message, action,
-      {
-        duration: seconds * 1000,
-        panelClass: style,
-      });
   }
 
   feedbackCreateUpdate(data: boolean) {
