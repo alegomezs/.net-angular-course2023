@@ -1,0 +1,27 @@
+<form [formGroup]="formEmployee" (ngSubmit)="submitEmployee()">
+  <div class="form-group mt-2">
+    <label for="firstName" class="form-label">Nombres <span class="text-danger">*</span></label>
+    <input type="text" formControlName="firstName" class="form-control" name="firstName" [(ngModel)]="employee.FirstName" [ngClass]="{ 'is-invalid': f['firstName'].touched && f['firstName'].errors }" placeholder="Nombres">
+    <div *ngIf="f['firstName'].touched && f['firstName'].errors" class="invalid-feedback">
+      <div *ngIf="f['firstName'].errors['required']">Nombres es requerido</div>
+      <div *ngIf="f['firstName'].errors['maxlength']">El máximo es 40 carácteres</div>
+    </div>
+  </div>
+  <div class="form-group mt-2">
+    <label for="lastName" class="form-label">Apellidos <span class="text-danger">*</span></label>
+    <input type="text" formControlName="lastName" class="form-control" name="lastName" [(ngModel)]="employee.LastName" [ngClass]="{ 'is-invalid': f['lastName'].touched && f['lastName'].errors }" placeholder="Apellidos">
+    <div *ngIf="f['lastName'].touched && f['lastName'].errors" class="invalid-feedback">
+      <div *ngIf="f['lastName'].errors['required']">Apellidos es requerido</div>
+      <div *ngIf="f['lastName'].errors['maxlength']">El máximo es 40 carácteres</div>
+    </div>
+  </div>
+  <div class="form-group mt-2">
+    <label for="homePhone" class="form-label">Teléfono <span class="text-danger">*</span></label>
+    <input type="text" formControlName="homePhone" class="form-control" name="homePhone" [(ngModel)]="employee.HomePhone" [ngClass]="{ 'is-invalid': f['homePhone'].touched && f['homePhone'].errors }" placeholder="Teléfono">
+    <div *ngIf="f['homePhone'].touched && f['homePhone'].errors" class="invalid-feedback">
+      <div *ngIf="f['homePhone'].errors['required']">Teléfono es requerido</div>
+      <div *ngIf="f['homePhone'].errors['maxlength']">El máximo es 40 carácteres</div>
+    </div>
+  </div>
+  <button type="submit" [ngClass]="employee.EmployeeID == 0 ? 'btn-primary' : 'btn-success'" class="btn btn-primary mt-3" [disabled]="this.formEmployee.invalid">{{ btnName }}</button>
+</form>

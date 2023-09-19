@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+html, body { height: 100%; }
+body.mat-typography {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  height: 100vh;
+
+  background-color: #212529;
+}
+
+body h1 {
+  color: white;
+}
+table.mat-mdc-table,
+div.mat-mdc-paginator,
+div.mat-mdc-text-field-wrapper,
+div.mat-mdc-text-field-wrapper:not(.mdc-text-field--disabled) {
+  background-color: #ffffff05;
+}

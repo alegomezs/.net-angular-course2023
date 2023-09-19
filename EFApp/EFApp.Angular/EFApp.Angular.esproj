@@ -15,4 +15,7 @@
   <ItemGroup>
     <TypeScriptConfiguration Include="src\app\app.module.ts" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\app\modules\employees\models\" />
+  </ItemGroup>
 </Project>
