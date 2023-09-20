@@ -3,14 +3,13 @@ import { Employee } from '../../models/employees';
 import { EmployeesService } from '../../services/employees.service';
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-read-delete-employee',
   templateUrl: './read-delete-employee.component.html',
-  styleUrls: ['./read-delete-employee.component.css'],
+  styleUrls: ['./read-delete-employee.component.css'],  
 })
 export class ReadDeleteEmployeeComponent implements OnInit, AfterViewInit {
 
@@ -24,7 +23,6 @@ export class ReadDeleteEmployeeComponent implements OnInit, AfterViewInit {
   dataSource!: MatTableDataSource<Employee>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     private employeesService: EmployeesService,
@@ -32,13 +30,12 @@ export class ReadDeleteEmployeeComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(new Array <Employee>);
+    this.dataSource = new MatTableDataSource(new Array<Employee>);
     this.getEmployees();
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {
@@ -60,7 +57,7 @@ export class ReadDeleteEmployeeComponent implements OnInit, AfterViewInit {
 
     this.employeesService.getEmployees().subscribe({
       next: res => {
-        Swal.close();        
+        Swal.close();
         this.dataSource.data = res;
       },
       error: err => {
@@ -126,8 +123,8 @@ export class ReadDeleteEmployeeComponent implements OnInit, AfterViewInit {
               closeModalBtn.click();
             }
             this.snackTitle = "Exito!";
-            this.snackDescription = `Eliminacíón exitosa!.`;            
-            this._snackBar.open(this.snackTitle, this.snackDescription,{duration: this.snackDuration * 1000,});
+            this.snackDescription = `Eliminacíón exitosa!.`;
+            this._snackBar.open(this.snackTitle, this.snackDescription, { duration: this.snackDuration * 1000, });
           },
           error: err => {
             Swal.close();

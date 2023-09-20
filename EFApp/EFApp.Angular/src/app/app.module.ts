@@ -7,8 +7,6 @@ import { DefaultModule } from './layouts/default/default.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EmployeesInterceptor } from './modules/employees/services/employees.service';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
