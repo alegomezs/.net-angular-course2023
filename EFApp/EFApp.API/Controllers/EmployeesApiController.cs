@@ -11,8 +11,7 @@ namespace EFApp.API.Controllers
 {
     [Route("api/[controller]")]   
     public class EmployeesApiController : ApiController
-    {
-        //[EnableCors(origins: "https://localhost:44383,http://localhost:4200", headers: "Access-Control-Allow-Origin", methods: "*")]
+    {       
         public class EmployeesController : ApiController
         {
             private readonly ICRUDLogic<Employees> employeeLogic;
