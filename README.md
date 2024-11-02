@@ -6,7 +6,7 @@ It's an Employee Administrator with a CRUD to play with.
 
 ## Stack 🧰
 
-This project was generated with Angular CLI version 16.2.2. combining [.NET Framework](https://dotnet.microsoft.com/es-es/download/dotnet-frameworkm) at the backend.
+This project was generated with [Angular CLI version 16.2.2](https://v16.angular.io/docs) combining [.NET Framework](https://dotnet.microsoft.com/es-es/download/dotnet-frameworkm) at the backend.
 
 ## Running unit tests ⚗️
 
